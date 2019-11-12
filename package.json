@@ -18,8 +18,13 @@
   },
   "homepage": "https://github.com/LemonSong17/Project-3#readme",
   "dependencies": {
+    "cookie-session": "^1.3.2",
+    "ejs": "^2.5.7",
     "express": "^4.17.1",
+    "mongoose": "^4.12.0",
     "node": "^12.13.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^2.0.0",
     "router": "^1.3.3",
     "stripe": "^7.13.0"
   }
