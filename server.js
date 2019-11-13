@@ -31,6 +31,8 @@ mongoose.connect(keys.mongodb.dbURI, () =>{
   console.log('connected to mongodb');
 });
 
+console.log("This is my backup")
+
 app.use(passport.initialize());
 //app.use(passport.session());
 
