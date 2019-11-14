@@ -31,6 +31,7 @@
     "stripe": "^7.13.0"
   },
   "devDependencies": {
+    "csv-parser": "^2.3.2",
     "dotenv": "^8.2.0",
     "nodemon": "^1.19.4"
   }
