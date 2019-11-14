@@ -4,7 +4,8 @@ module.exports = {
         clientSecret: 'NQdVqol0rmA3flVhZjLOlKf6'
     },
     mongodb: {
-        dbURI: 'mongodb://cannaberadmin:cannaber00@cluster0-jsmhv.gcp.mongodb.net/test?retryWrites=true&w=majority'
+        //dbURI: 'mongodb://cannaberadmin:cannaber00@cluster0-jsmhv.gcp.mongodb.net/test?retryWrites=true&w=majority',
+        dbURI:'mongodb://heroku_0j84wqg5:5g2jgoc9mrnhnm41v8aadjcm9g@ds033499.mlab.com:33499/heroku_0j84wqg5'
     },
     session: {
         cookieKey: ''

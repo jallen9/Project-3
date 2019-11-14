@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://LemonSong17:Fumanchu7@ds141188.mlab.com:41188/heroku_szxl6c7r";
 // mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 //connect to MSQLdb
-mongoose.connect(keys.mongodb.dbURI, () =>{
+mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true }, () =>{
   console.log('connected to mongodb');
 });
 
