@@ -5143,3 +5143,52 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
   float: right;
   color: #e74e84;
 }
+
+
+
+
+#navagationbar {
+  background-color: #337336;
+  padding: 25px 0;
+  line-height: 1;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  #navagationbar {
+    /* For less than 767px */
+    padding: 15px 0;
+  }
+}
+#navagationbar ul {
+  float: right;
+  margin: 0;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  
+}
+#navagationbar ul li {
+  display: inline-block;
+  padding-right: 8px;
+  margin-right: 3px;
+  position: relative;
+}
+#navagationbar ul li a {
+  color: #fff;
+}
+#navagationbar ul li a:hover {
+  color: #74d1c6;
+}
+#navagationbar ul li:after {
+  content: "\e9ee";
+  font-family: "fontello";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#navagationbar ul li:last-child {
+  opacity: 0.7;
+}
+#navagationbar ul li:last-child:after {
+  content: '';
+  margin-right: 0;
+}
