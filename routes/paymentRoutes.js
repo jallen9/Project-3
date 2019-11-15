@@ -16,6 +16,7 @@ paymentRouter.post('/stripe', (req, res) => {
       currency: 'usd',
       quantity,
     }],
+    //Want to send success page to  confirm.html 
     success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: 'https://example.com/cancel',
   }).then(response => {
