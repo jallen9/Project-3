@@ -107,6 +107,14 @@
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/code.js"> </script>
-	<script src="js/htmlapi.js"> </script>
+	<script>  
+		// Make the AJAX request to the API - GETs the JSON data at the queryURL.
+		// The data then gets passed as an argument to the updatePage function
+		console.log('linked success');
+		$.ajax({
+		  url: '/storesmodels',
+		  method: "GET"
+		}).then(data => console.log(data));
+	  </script>
 </body>
 </html>

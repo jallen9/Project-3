@@ -37,9 +37,6 @@ console.log("This is my backup")
 app.use(passport.initialize());
 //app.use(passport.session());
 
-//Include assets
-app.use('/assets', express.static('assets'))
-
 //Web Routes
 app.use('/auth', authRoutes);
 app.use('/web', webRoutes);
@@ -59,6 +56,10 @@ app.get("/storesmodels", function(req, res) {
       res.json(err);
     });
 });
+
+//Include assets
+// app.use('/assets', express.static('assets'))
+app.use(express.static(__dirname + '/assets'));
 
 // Send every other request to the React app
 // Define any API routes before this runs
