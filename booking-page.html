@@ -19,6 +19,15 @@
     
 	<!-- YOUR CUSTOM CSS -->
 	<link href="css/custom.css" rel="stylesheet">
+	<script src="https://js.stripe.com/v3/"></script>
+	<style>
+	
+
+	#card-element {
+		width: 500px;
+		height:500px;
+	}
+	</style>
 
 </head>
 
@@ -265,17 +274,34 @@
 	
 	
 	</div>
-	<!-- page -->
+
 
 	<div id="toTop"></div>
-
+	<div style="height:50vh; width:vw;">
+	<form action="/charge" method="post" id="payment-form">
+		<div class="form-row">
+		  <label for="card-element">
+			Credit or debit card
+		  </label>
+		  <div id="card-element">
+			<!-- A Stripe Element will be inserted here. -->
+		  </div>
+	  
+		  <!-- Used to display Element errors. -->
+		  <div id="card-errors" role="alert"></div>
+		</div>
+	  
+		<button>Submit Payment</button>
+	  </form>
+	</div>
 
 	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
-	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/common_scripts.min.js"></script>
 	<script src="js/functions.js"></script>
+	<script src="routes/payment.js"></script>
      
 </body>
 </html>
