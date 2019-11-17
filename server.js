@@ -20,9 +20,11 @@ app.use(cookieSession({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static("assets"));
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/build/assets"));
 }
 // Connect to MongoDB
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://LemonSong17:Fumanchu7@ds141188.mlab.com:41188/heroku_szxl6c7r";
