@@ -38,11 +38,15 @@ console.log("This is my backup")
 
 app.use(passport.initialize());
 //app.use(passport.session());
+app.use(express.static("views"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./index.html"));
+});
 
 //Web Routes
 app.use('/auth', authRoutes);
 app.use('/web', webRoutes);
-app.use(express.static("views"));
+
 
 // Route for getting all Stores from the db
 app.get("/storesmodels", function(req, res) {
@@ -65,9 +69,7 @@ app.use(express.static(__dirname + '/assets'));
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./index.html"));
-});
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
