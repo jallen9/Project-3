@@ -31,7 +31,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-6">
 						<div id="logo_home">
-							<h3>CannaberProviders</h3>
+							<h3 onclick="location.href='/web/home'" style="cursor: pointer;">CannaberProviders</h3>
 						</div>
 					</div>
 				</div>
@@ -43,13 +43,13 @@
 		<main>
 			<div id="navagationbar">
 				<div class="container">
-					<ul>
+					<!-- <ul>
 						<li>
 							<a href=#>Home</a>
 							<a href=#>Providers</a>
 							<a href=#>Sign up/ Login</a>
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 
@@ -78,7 +78,7 @@
 										<div class="col-lg-7 col-md-8">
 											<small>Dispensary • Medical</small>
 											<h1 id="providerName"></h1>
-											<span class="rating">
+											<!-- <span class="rating">
 												<i class="icon_star voted"></i>
 												<i class="icon_star voted"></i>
 												<i class="icon_star voted"></i>
@@ -88,11 +88,10 @@
 												<a href="" data-toggle="tooltip" data-placement="top"
 													data-original-title="Badge Level" class="badge_list_1"><img
 														src="/img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-											</span>
-											<ul class="statistic">
+											</span> -->
+											<!-- <ul class="statistic">
 												<li>854 Views</li>
-												<!-- <li>124 Patients</li> -->
-											</ul>
+											</ul> -->
 											<ul class="contacts">
 												<li>
 													<h6>Address</h6>
@@ -184,10 +183,13 @@
 			var providerProducts = null;
 			var cart = [];
 
+			localStorage.setItem("cart", JSON.stringify(cart));
+
 			if (provider != null) {
 				$("#providerName").text(provider.name);
-				$("#providerImage").text(provider.avatar_url);
+				$("#providerImage").attr('src', provider.avatar_url);
 				$("#providerPhone").text(provider.phone_number);
+				$("#providerPhone").attr('href', 'tel://' + provider.phone_number);
 				$("#providerAddress").text(provider.address + ' ' + provider.city + ', ' + provider.state + ' ' + provider.zip_code);
 				$("#providerDescription").html(provider.description);
 			}
@@ -201,7 +203,7 @@
 				var html = '';
 
 				$.each(products, function (key, value) {
-					html += "<tr><td>" + value.name + "</td><td>$" + value.prices.gram + "<button type='button' onclick='$.addTocart(" + value.id + ")'>Add</button></td></tr>";
+					html += "<tr><td>" + value.name + "</td><td>$" + value.prices.gram + "<button type='button' class='btn_1' onclick='$.addTocart(" + value.id + ")'>Add</button></td></tr>";
 				});
 
 				$("#productsTableBody").html(html);
@@ -228,9 +230,9 @@
 				var orderItemsHtml;
 
 				$.each(cart, function (key, value) {
-					orderItemsHtml += '<li><div class="checkbox"><input type="checkbox" class="css-checkbox orderItemCheckbox" id="' + value.id + '" name="' + value.id + '">' +
-						'<label for="' + value.id + '" class="css-label">' + value.name + '<strong>$' + value.prices.gram + '</strong></label>' +
-						'</div></li>';
+					orderItemsHtml += '<li>' +
+						'<label class="css-label">' + value.name + '<strong>$' + value.prices.gram + '</strong></label>' +
+						'</li>';
 				});
 
 				$("#orderItemsList").html(orderItemsHtml);

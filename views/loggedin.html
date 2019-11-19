@@ -75,8 +75,8 @@
 									</g>
 								</svg>
 							</div>
-							<h2>Thanks for your order!</h2>
-							<p>You'll receive a confirmation email soon</p>
+							<h2 id="user"> </h2>
+							<button class="btn btn-primary" onclick="$.goToBooking()">Continue</button>
 						</div>
 					</div>
 				</div>
@@ -96,6 +96,11 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			location.href = "/web/booking";
+		})
+	</script>
 </body>
 
 </html>

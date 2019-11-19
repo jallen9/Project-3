@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="Ansonika">
+	<!-- <meta name="google-signin-client_id"
+		content="2775009248-6vrv2fhbbntrpiekvh0nr2jbku80evm0.apps.googleusercontent.com"> -->
 	<title>Booking Cannaber Providers</title>
 
 	<!-- GOOGLE WEB FONT -->
@@ -29,7 +31,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-6">
 						<div id="logo_home">
-							<h3>CannaberProviders</h3>
+							<h3 onclick="location.href='/web/home'" style="cursor: pointer;">CannaberProviders</h3>
 						</div>
 					</div>
 				</div>
@@ -41,13 +43,13 @@
 		<main>
 			<div id="navagationbar">
 				<div class="container">
-					<ul>
+					<!-- <ul>
 						<li>
 							<a href=#>Home</a>
 							<a href=#>Providers</a>
 							<a href=#>Sign up/ Login</a>
 						</li>
-					</ul>
+					</ul> -->
 				</div>
 			</div>
 
@@ -56,7 +58,15 @@
 					<div class="col-xl-8 col-lg-8">
 						<div class="box_general_3 cart">
 							<div class="message">
-								<p><a href="/auth/google">Click here to login</a></p>
+								<div id="userDetails">
+									<img src="" id="thumbnail" class="img-fluid" style="width: 80px;" />
+									<h2 id="username"></h2>
+									<h4 id="email"></h4>
+								</div>
+								<div id="loginArea">
+									<p><a href="/auth/google">Click here to login</a></p>
+								</div>
+
 							</div>
 							<div class="form_title">
 								<h3><strong>1</strong>Your Details</h3>
@@ -297,69 +307,42 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<!-- <script src="https://js.stripe.com/v3/"></script> -->
 	<script>
+
 		$(document).ready(function () {
-			//var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 			var cart = JSON.parse(localStorage.getItem("cart"));
+			var username = localStorage.getItem("username");
+			var email = localStorage.getItem("email");
+			var thumbnail = localStorage.getItem("thumbnail");
+			var googleid = localStorage.getItem("googleid");
 			var orderItemsHtml;
 
+			//Do what we need to with the logged in user profile info
+			//If user isn't logged in, don't allow ability to pay?
+			if (username != null) {
+				$("#userDetails").show();
+				$("#loginArea").hide();
+				$("#username").text(username);
+				$("#email").text(email);
+				$("#thumbnail").attr('src', thumbnail);
+				$("#btnPayNow").show();
+				//$("#googleid").text(googleid);
+			} else {
+				$("#loginArea").show();
+				$("#userDetails").hide();
+				$("#btnPayNow").hide();
+			}
+
 			$.each(cart, function (key, value) {
-				orderItemsHtml += '<li><div class="checkbox"><input type="checkbox" class="css-checkbox orderItemCheckbox" id="' + value.id + '" name="' + value.id + '">' +
-					'<label for="' + value.id + '" class="css-label">' + value.name + '<strong>$' + value.prices.gram + '</strong></label>' +
-					'</div></li>';
+				orderItemsHtml += '<li>' +
+					'<label class="css-label">' + value.name + '<strong>$' + value.prices.gram + '</strong></label>' +
+					'</li>';
 			});
 
-			$("#orderItemsList").html(orderItemsHtml);
-
-			$("#btnPayNow").click(function () {
-				location.href = "/web/finished";
-			})
-
-			//Stripe stuff, just checking it out 
-			// $.pay = function () {
-			// 	var paymentRequest = stripe.paymentRequest({
-			// 		country: 'US',
-			// 		currency: 'usd',
-			// 		total: {
-			// 			label: 'Demo total',
-			// 			amount: 1000,
-			// 		},
-			// 		requestPayerName: true,
-			// 		requestPayerEmail: true,
-			// 	});
-
-			// 	var elements = stripe.elements();
-			// 	var prButton = elements.create('paymentRequestButton', {
-			// 		paymentRequest: paymentRequest,
-			// 	});
-
-			// 	// Check the availability of the Payment Request API first.
-			// 	paymentRequest.canMakePayment().then(function (result) {
-			// 		if (result) {
-			// 			prButton.mount('#payment-request-button');
-			// 		} else {
-			// 			document.getElementById('payment-request-button').style.display = 'none';
-			// 		}
-			// 	});
-
-			// 	paymentRequest.on('token', function (ev) {
-			// 		fetch('/pay', {
-			// 			method: 'POST',
-			// 			body: JSON.stringify({
-			// 				token: ev.token.id,
-			// 				cart: cart
-			// 			}),
-			// 			headers: { 'content-type': 'application/json' },
-			// 		}).then(function (response) {
-			// 			if (response.ok) {
-			// 				ev.complete('success');
-			// 			} else {
-			// 				ev.complete('fail');
-			// 			}
-			// 		});
-			// 	});
-			// }
+			$("#orderItemsList").html(orderItemsHtml));
+		$("#btnPayNow").click(function () {
+			location.href = "/web/finished";
+		})
 		})
 	</script>
 </body>
