@@ -5,12 +5,11 @@
 
 
 
-
-
-
 *Todo:*
 Required
 1) Create react components for the header and provider listing.  Would be nice to also create one for: product listing and order item.
+
+2)Load Any keys/creds such as config>keys> google clientSecret and db connection string credentials by setting them as environment variables, startup parameters, or some other method.  You just cant have them easily readable in the git repository code.
 
 Not Required/other
 1) Product prices are based on grams.. to change use a different price from listingmodel.js
