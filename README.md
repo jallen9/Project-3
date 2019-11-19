@@ -12,16 +12,12 @@
 Required
 1) Create react components for the header and provider listing.  Would be nice to also create one for: product listing and order item.
 
-2) Require google login to access order checkout screen
-
-3) Remove sensitive keys/credentials from code, load them as startup or environment variables
-
 Not Required/other
-3) Product prices are based on grams.. to change use a different price from listingmodel.js
+1) Product prices are based on grams.. to change use a different price from listingmodel.js
 
-4) Get the heroku nameserver urls, assign the cannaberproviders.com domain nameservers to the heroku nameservers..
+2) Get the heroku nameserver urls, assign the cannaberproviders.com domain nameservers to the heroku nameservers..
 ex: heroku name server is ns1.heroku.com  go to google domains, manage, change nameservers to ns1.heroku.com  wait about an hour for it to reflect.
 
-5) If we integrate with stripe fully, set the success callback url to cannaberproviders.com/web/finished (or create a new page for it).
+3) If we integrate with stripe fully, set the success callback url to cannaberproviders.com/web/finished (or create a new page for it).
 
-6) Once domain is setup with host, we need to update the google oauth source/destination addresses if it's broken, in the google dev console.
+4) Once domain is setup with host, we need to update the google oauth source/destination addresses if it's broken, in the google dev console.

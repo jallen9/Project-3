@@ -20,10 +20,6 @@ router.get('/finished', (req, res) => {
     res.sendFile('finished.html', { root: './views/' });
 });
 
-router.get('/loggedin', (req, res) => {
-    res.sendFile('loggedin.html', { root: './views/' });
-});
-
 module.exports = router;
 
 
