@@ -9,7 +9,11 @@ const keys = require('./config/keys');
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const db = require("./models/storesmodel");
+const providersDb = require("./models/storesmodel");
+const providerProductsDb = require("./models/listingmodel");
+
+//Uncomment to run csv data import into mongodb
+//const dataMigration = require("./datamigration");
 
 app.set('view engine', 'ejs');
 // Define middleware here
@@ -28,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://LemonSong17:Fumanchu7@ds141188.mlab.com:41188/heroku_szxl6c7r";
 // mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 //connect to MSQLdb
-mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true }, () =>{
+mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true }, () => {
   console.log('connected to mongodb');
 });
 
@@ -42,29 +46,49 @@ app.use('/auth', authRoutes);
 app.use('/web', webRoutes);
 app.use(express.static("views"));
 
-// Route for getting all Stores from the db
-app.get("/storesmodels", function(req, res) {
-  // Grab every document in the Stores collection
-  db.find({})
-    .then(function(Stores) {
-      // If we were able to successfully find Stores, send them back to the client
-      res.json(Stores);
-      // console.log(Stores);
+// Route for getting all Providers from the db
+app.get("/providers", function (req, res) {
+  // Grab every document in the Providers collection
+  providersDb.find({})
+    .then(function (Providers) {
+      // If we were able to successfully find Providers, send them back to the client
+      res.json(Providers.sort());
+      // console.log(Providers);
     })
-    .catch(function(err) {
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+app.get("/providers/:providerId/products", function (req, res) {
+  // Grab every document in the listing collection
+  providerProductsDb.find({})
+    .then(function (Products) {
+      //console.log(Products);
+      //Return only products belonging to the requested provider
+      Products = Products.filter(function (p) {
+        return p.listing_id == req.params.providerId;
+      });
+
+      // If we were able to successfully find listings, send them back to the client
+      res.json(Products.sort((a, b) => (a.name > b.name) ? 1 : -1));
+    })
+    .catch(function (err) {
       // If an error occurred, send it to the client
       res.json(err);
     });
 });
 
 //Include assets
-// app.use('/assets', express.static('assets'))
+app.use('/assets', express.static('assets'))
+app.use('/web/assets', express.static('assets'))
 app.use(express.static(__dirname + '/assets'));
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./index.html"));
+app.get("/", (req, res) => {
+  res.redirect("/web/home");
 });
 
 app.listen(PORT, () => {

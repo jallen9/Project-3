@@ -8,7 +8,7 @@ obj = JSON.parse(text);
 console.log(obj)
 var html = '';
 $.each(obj, function (key, value) {
-console.log("for each" + key,value)
+
     html += '<div class="strip_list wow fadeIn">';
     html += '<a href="#0" class="wish_bt"></a>';
     html +='<figure> <a href="' + value.detail + '"><img src="assets/img/'+ value.photo+'" alt=""></a></figure>';
