@@ -27,7 +27,8 @@ passport.use(
         return done(null, new User({
             googleId: profile.id,
             username: profile.displayName,
-            thumbnail: profile._json.picture
+            thumbnail: profile._json.picture,
+            email: profile.emails[0].value
         }));
     })
 );
