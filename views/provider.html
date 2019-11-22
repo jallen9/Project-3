@@ -26,19 +26,7 @@
 <body>
 
 	<div id="page">
-		<header class="header_sticky">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-6">
-						<div id="logo_home">
-							<h3 onclick="location.href='/web/home'" style="cursor: pointer;">CannaberProviders</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /container -->
-		</header>
-		<!-- /header -->
+			<div id="headerArea"></div>
 
 		<main>
 			<div id="navagationbar">
@@ -176,6 +164,10 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+	<script src="/assets/js/header.js"></script>
 	<script>
 		$(document).ready(function () {
 			var provider = JSON.parse(localStorage.getItem("provider"));
@@ -196,14 +188,14 @@
 
 			//Get the provider's products
 			$.ajax({
-				url: '/providers/' + providerId + '/products',
+				url: '/api/providers/' + providerId + '/products',
 				method: "GET"
 			}).then(products => {
 				providerProducts = products;
 				var html = '';
 
 				$.each(products, function (key, value) {
-					html += "<tr><td>" + value.name + "</td><td>$" + value.prices.gram + "<button type='button' class='btn_1' onclick='$.addTocart(" + value.id + ")'>Add</button></td></tr>";
+					html += "<tr><td><a href='" + value.image_url + "'><img class='productImage' src='" + value.thumb_image_url + "'/></a>" + value.name + "</td><td><span> $" + value.prices.gram + "</span><button type='button' class='btn_1' onclick='$.addTocart(" + value.id + ")'>Add</button></td></tr>";
 				});
 
 				$("#productsTableBody").html(html);

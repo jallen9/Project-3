@@ -20,6 +20,12 @@ router.get('/finished', (req, res) => {
     res.sendFile('finished.html', { root: './views/' });
 });
 
+router.get('/contact', (req, res) => {
+    res.sendFile('contact.html', { root: './views/' });
+});
+
+
+
 module.exports = router;
 
 
