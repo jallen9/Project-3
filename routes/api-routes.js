@@ -2,7 +2,7 @@ const router = require('express').Router();
 const providersDb = require("../models/storesmodel");
 const providerProductsDb = require("../models/listingmodel");
 const sgMail = require('@sendgrid/mail');
-const keys = require('./keys');
+const keys = require('../config/keys.js');
 
 //Endpoint for contact us form data, returns empty json
 router.post('/contact/sendmessage', (req, res) => {
