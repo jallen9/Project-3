@@ -1,6 +1,8 @@
 # Cannaber
 
-To decrypt keys.js file, go to http://www.aesencryption.net enter the existing encrypted text in keys.js, enter our private password, and select 256 bit.  Then copy/paste the decrypted text into keys.js and save.  
+IMPORTANT:
+1) To use Google oauth locally, go to config folder, passport-setup.js and change http://cannaberproviders.com/auth/google/redirect to http://localhost:3001/auth/google/redirect 
+2) To decrypt keys.js file, go to http://www.aesencryption.net enter the existing encrypted text in keys.js, enter our private password, and select 256 bit, click Decrypt.  Then copy/paste the decrypted text into keys.js and save.  
 IMPORTANT: Do not commit the decrypted text!  Our repo is public, so it allows others to see our api keys, and will actually disable sendgrid functionality.
 
 1) To run website, in terminal type: "node server.js" then press enter and navigate to localhost:3001
