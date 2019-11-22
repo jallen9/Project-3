@@ -17,6 +17,5 @@ Requirements met description:
 11 No sensitive api keys are exposed, they are stored in express via keys.js, never exposed in client files.
 
 TODO:
-- Get the heroku nameserver urls, assign the cannaberproviders.com domain nameservers to the heroku nameservers..
-ex: heroku name server is ns1.heroku.com  go to google domains, manage, change nameservers to ns1.heroku.com  wait about an hour for it to reflect.
+- Setup heroku deployment from github project.  Then assign the cannaberproviders.com domain to heroku name servers.
 - Once domain is setup with host, we need to update the google oauth source/destination addresses if it's broken, in the google dev console.
