@@ -26,19 +26,7 @@
 </head>
 
 <body>
-    <header class="header_sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-6">
-                    <div id="logo_home">
-                        <h3 onclick="location.href='/web/home'" style="cursor: pointer;">CannaberProviders</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /container -->
-    </header>
-    <!-- /header -->
+    <div id="headerArea"></div>
     <main>
         <div class="hero_home version_1">
             <div class="content">
@@ -79,13 +67,17 @@
             </div>
             <!-- /row -->
             <p class="text-center"><a href="/web/providers" class="btn_1 medium">Find Providers</a></p>
-            <!-- <p class="text-center"><a href="/auth/google" class="btn_1 medium">Login</a></p> -->
+            <p class="text-center"><a href="/web/contact" class="btn_1 medium">Contact Us</a></p>
         </div>
         <!-- COMMON SCRIPTS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             src="https://js.stripe.com/v3/"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
             </script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="/assets/js/header.js"></script>
         </script>
 </body>
 
