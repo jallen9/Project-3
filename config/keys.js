@@ -1,1 +1,16 @@
-wd9zh8yadXWalInklmXdYI5X4zkVukjTMoxcl/QNS3+XCF/StHWPeFeVG3aSv7pkh3tYzL/SBzjM5X/j/4LBvj6CS+Xz+KDHS7s2Tcsl3tokgdIQgBipMEoSkNVGrwma+7FC5hi6PDa6pmqupkU2MUMTovNgfvmGLqmfHsEK3EXzjkjekaxlSnNH7JsJ/EGLoVUxTiISsQ9ztcT0SjAm0BP5wT8jf/5944MMfu6yo4IiutDMNxBv5NNKuUx3k7zPDOT3ValeHe6P8HbhPcJDeV77ZgItnQ4KlOKDchrja45kNv64d97rp8xg215rMs8LzEOThv3UChkg5xDSYF4VER9HIV/AJRIW8TN1puxPWk1xIa35M8Rwp5+cRE0Yre9d6r8TDz5TUfxF1nG5+RVNt8NLx52fMgMojmh8EL1frCSZXUTFc7WpR78pvL50JPtNi1abccvPcrrtm7dt2Jx/ms/VXuSU9nh5EbeEvDHQMqhExzZ7lf1IWsjB8imxJ4stO0EYdfeZ87hZ7Lf6d+mKfYEY0wmmifsqF8LuZJV7+FoO3jE59ckRDli+vMc/p9zsmsSr0COymzLobTEdVoDSvFkZBdg0MlGHVh87MJGwFHKHRwHS3C0yfZEKsjH6jxfs06itjEhPbSSmBpuFQ+54ARZktFElmO0WDgOR7l/U3xQDNP1X3uK3A0QC1nCTCEY3MxkcR4c+LyuH74T3yELBYNtlm32LpnD4d8HGMSu/+AkPo/FxLjPRimesANGmeVUMFgDEbxn3dfu5X9tFr9N5igMwyDqWFjgpJjVEzn3j5k0=
+module.exports = {
+    google: {
+        clientID: '2775009248-6vrv2fhbbntrpiekvh0nr2jbku80evm0.apps.googleusercontent.com',
+        clientSecret: 'NQdVqol0rmA3flVhZjLOlKf6'
+    },
+    mongodb: {
+        //dbURI: 'mongodb://cannaberadmin:cannaber00@cluster0-jsmhv.gcp.mongodb.net/test?retryWrites=true&w=majority',
+        dbURI: 'mongodb://heroku_0j84wqg5:5g2jgoc9mrnhnm41v8aadjcm9g@ds033499.mlab.com:33499/heroku_0j84wqg5'
+    },
+    sendgrid: {
+        apikey: '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'
+    },
+    session: {
+        cookieKey: ''
+    }
+};
