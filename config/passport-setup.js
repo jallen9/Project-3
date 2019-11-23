@@ -18,7 +18,7 @@ passport.use(
     new GoogleStrategy({
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL: 'http://localhost:3001/auth/google/redirect'
+        callbackURL: 'http://cannaberproviders.com/auth/google/redirect'
     }, (accessToken, refreshToken, profile, done) => {
         console.log(accessToken);
         console.log(refreshToken);
