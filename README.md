@@ -1,3 +1,4 @@
+
 # CannaberProviders
 
 Cannaber Providers mobile delivery and user-friendly web-based application to make life easier for those who are looking for a more convenient way to get there medical and recreational cannabis products. 
@@ -17,6 +18,7 @@ IMPORTANT:
 1) To use Google oauth locally, go to config folder, passport-setup.js and change http://cannaberproviders.com/auth/google/redirect to http://localhost:3001/auth/google/redirect 
 2) To decrypt keys.js file, go to http://www.aesencryption.net enter the existing encrypted text in keys.js, enter our private password, and select 256 bit, click Decrypt.  Then copy/paste the decrypted text into keys.js and save.  
 IMPORTANT: Do not commit the decrypted text!  Our repo is public, so it allows others to see our api keys, and will actually disable sendgrid functionality.
+
 
 1) To run website, in terminal type: "node server.js" then press enter and navigate to localhost:3001
 2) To restart website, in the case you made changes to code, go to terminal, press ctrl+c to stop the server, then restart via step 1 above.
